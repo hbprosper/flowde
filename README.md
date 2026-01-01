@@ -44,15 +44,22 @@ The function $\alpha(t)$ is chosen so that it goes to zero as $t \rightarrow 1$,
 ```math
 \begin{aligned}
 \alpha(t) & = 1 - t,\\
-\sigma(t) & = \sigma_1 t + \sigma_0 (1 - t) \quad\text{with } \sigma_1 = 1.
+\sigma(t) & = \sigma_1 t + \sigma_0 (1 - t) \quad\text{with } \sigma_1 = 1,
+\end{aligned}
+```
+which yields
+```math
+\begin{aligned}
+    \lambda(t) & = \frac{1 - \sigma_0}{\sigma(t)} \text{ and }
+    \mu(t)  = -\frac{1}{\sigma(t)} .
 \end{aligned}
 ```
 ## Code
 The class `FlowDE` numerically solves the equation
 ```math
 \begin{aligned}
-    \frac{d x}{dt} 
-     & = \lambda(t) \, x + \mu(t)
+    \sigma(t) \frac{d x}{dt} 
+     & = (1 - \sigma_0) \, x -
      \, q(t, x),
 \end{aligned}
 ```
