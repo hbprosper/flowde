@@ -19,24 +19,24 @@ q(t, x) & = \int_{\mathbb{R}^d}  x_0 \, p(x_0 \mid x) \, dx_0 ,\\
 & =  \int_{\mathbb{R}^d}  x_0 \, p(x \mid x_0) \, p(x_0) \, dx_0 \, / \, \int_{\mathbb{R}^d}  p(x \mid x_0) \, p(x_0) \, dx_0, 
 \end{aligned}
 ```
-with the conditional probability density of $x_t \equiv x(t)$ given by
+with $p(x \mid x_0)$ given by
 ```math
 \begin{aligned}
-p(x_t | x_0) & = {\cal N}(x_t; \alpha_t x_0, \, \sigma^2_t \mathbf{I}), \\
- & = \prod_{i=1}^d {\cal N}(x_{t, i}; \alpha_t x_{0,i}, \sigma_t^2),\\
- & = \frac{1}{(\sigma \sqrt{2\pi})^d} \exp\left[ -\frac{1}{2}\sum_{i=1}^d \left( \frac{x_{t, i} - \alpha(t) \, x_{0, i}}{\sigma(t)} \right)^2 \right].
+p(x | x_0) & = {\cal N}(x; \, \alpha(t) x_0, \, \sigma^2(t) \mathbf{I}), \\
+ & = \prod_{i=1}^d {\cal N}(x_{t, i}; \alpha(t) x_{0,i}, \sigma^2(t)),\\
+ & = \frac{1}{(\sigma \sqrt{2\pi})^d} \exp\left[ -\frac{1}{2}\sum_{i=1}^d \left( \frac{x_{t, i} - \alpha(t) \, x_{0, i}}{\sigma(t)} \right)^2 \right], 
 \end{aligned}
 ```
-The quantity $x_{t, i} \equiv x_i(t)$ is the $i^\text{th}$ component of the $d$-dimensional vector $x(t)$. Defining the $d$-dimensional vector
+where $x_{t, i} \equiv x_i(t)$ is the $i^\text{th}$ component of the vector $x(t)$. Defining the $d$-dimensional vector
 ```math
 \begin{align}
     z(t) & = \frac{x(t) - \alpha(t) \, x(0)}{\sigma(t)} ,
 \end{align}
 ```
-we can write
+we can write $p(x \mid x_0)$ as
 ```math
 \begin{aligned}
-p(x_t | x_0) 
+p(x | x_0) 
  & \propto \exp \left(-\frac{1}{2}  z^2 \right). 
 \end{aligned}
 ```
