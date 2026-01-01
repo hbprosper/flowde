@@ -44,9 +44,19 @@ The function $\alpha(t)$ is chosen so that it goes to zero as $t \rightarrow 1$,
 ```math
 \begin{aligned}
 \alpha(t) & = 1 - t,\\
-\sigma(t) & = \sigma_1 t + \sigma_0 (1 - t) .
+\sigma(t) & = \sigma_1 t + \sigma_0 (1 - t) \quad\text{with } \sigma_1 = 1.
 \end{aligned}
 ```
+## Code
+The class `FlowDE` numerically solves the equation
+```math
+\begin{aligned}
+    \frac{d x}{dt} 
+     & = \lambda(t) \, x + \mu(t)
+     \, q(t, x),
+\end{aligned}
+```
+where, following Ref.[1], the integrals that define the vector field $q(t, x)$ are approximated by Monte Carlo integration using point clouds $\sim p(x_0)$, which for intractable densities would usually be done via Monte Carlo simulation.
 
 ## References
  1. Yanfang Lui, Minglei Yang, Zezhong Zhang, Feng Bao, Yanzhao Cao, and Guannan Zhang, Diffusion-Model-Assisted Supervised Learning of Generative Models for Density Estimation, arXiv:2310.14458v1, 22 Oct 2023
