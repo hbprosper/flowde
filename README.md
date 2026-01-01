@@ -44,7 +44,7 @@ The function $\alpha(t)$ is chosen so that it goes to zero as $t \rightarrow 1$,
 ```math
 \begin{aligned}
 \alpha(t) & = 1 - t,\\
-\sigma(t) & = \sigma_1 t \sigma_0 (1 - t) .
+\sigma(t) & = \sigma_1 t + \sigma_0 (1 - t) .
 \end{aligned}
 ```
 
