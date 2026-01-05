@@ -66,7 +66,7 @@ The class `FlowDE` numerically solves the equation
 where, following Ref.[3], the integrals that define the vector field $q(t, x)$ are approximated by Monte Carlo integration using the point cloud ${\cal D}$. In principle, `FlowDE` works for any dimension $d$; in practice, `FlowDE` is limited by the available GPU memory. For $N$ points $x_1 \sim p(x_1)$, that is, $N$ solutions computed in parallel, using a point cloud of size $M$, `FlowDE` needs to store a minimum of $N \times M \times d$ 32-bit floating point numbers.
 
 ## Example
-The notebook `tutorial.ipynb` illustrates the usage ``FlowDE` using a simple 2D density.
+The notebook `tutorial.ipynb` illustrates the usage `FlowDE` using a simple 2D density.
 
 ## References
   1. Yang Song, Jascha Narain Sohl-Dickstein, Ben Poole, *Score-Based Generative Modeling through Stochastic Differential Equation*, International Conference on Learning Representations, 26 November 2020; https://arxiv.org/abs/2011.13456
