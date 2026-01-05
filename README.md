@@ -63,7 +63,7 @@ The class `FlowDE` numerically solves the equation
      \, q(t, x),
 \end{aligned}
 ```
-where, following Ref.[1], the integrals that define the vector field $q(t, x)$ are approximated by Monte Carlo integration using the point cloud ${\cal D}$. In principle, `FlowDE` works for any dimension $d$; in practice, it is limited by the available GPU memory. For $N$ points $x_1 \sim p(x_1)$, that is, $N$ solutions, using a point cloud of size $M$, `FlowDE` needs to store a minimum of $N \times M \times d $ 32-bit floating point numbers.
+where, following Ref.[1], the integrals that define the vector field $q(t, x)$ are approximated by Monte Carlo integration using the point cloud ${\cal D}$. In principle, `FlowDE` works for any dimension $d$; in practice, `FlowDE` is limited by the available GPU memory. For $N$ points $x_1 \sim p(x_1)$, that is, $N$ solutions computed in parallel, using a point cloud of size $M$, `FlowDE` needs to store a minimum of $N \\times M \\times d $ 32-bit floating point numbers.
 
 ## Example
 The notebook `tutorial.ipynb` illustrates the usage ``FlowDE` using a simple 2D density.
