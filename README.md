@@ -6,7 +6,7 @@ Feng Bao *et al.*[1] note that the reverse-time ODE
 ```math
     dx  = \left[f(t) x - \frac{1}{2} g^2(t) S(t, x)\right] dt, \quad S(t, x) = \nabla_{x} \log p(x)
 ```
-maps $x_1 \equiv x(t=1) \sim p(x_1)$ to $x_0 \equiv x(t=0) \sim p(x_0)$ *deterministically*, where $p(x_1)$ is a diagonal $d$-dimensional standard normal density and $p(x_0)$ is a desired $d$-dimensional target density for which it is assumed that a point cloud, $\{ x_0^{(j)}\}_{j=1}^n$, exists. The probability density $p(x)$ smoothly interpolates between $p(x_1)$ and $p(x_0)$ and $S(t, x)$ is the **score funtion** associated with $p(x)$.  Using the definitions of the functions $f(t)$ and $g(t)$ in Ref.[1], and after some manipulation, these equations can be written as
+maps $x_1 \equiv x(t=1) \sim p(x_1)$ to $x_0 \equiv x(t=0) \sim p(x_0)$ *deterministically*, where $p(x_1)$ is a diagonal $d$-dimensional standard normal density and $p(x_0)$ is a desired $d$-dimensional target density for which it is assumed that a point cloud, $\\{ x_0^{(j)}\\}_{j=1}^n$, exists. The probability density $p(x)$ smoothly interpolates between $p(x_1)$ and $p(x_0)$ and $S(t, x)$ is the **score funtion** associated with $p(x)$.  Using the definitions of the functions $f(t)$ and $g(t)$ in Ref.[1], and after some manipulation, these equations can be written as
 ```math
 \begin{aligned}
     \frac{d x}{dt} 
