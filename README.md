@@ -2,7 +2,7 @@
 ## Reverse-Time Ordinary Differential Equation (ODE)
 
 Let $x(t) \in \mathbb{R}^d$ be a $d$-dimensional vector with probability density $p(x)$ defined on the domain $t \in [0, 1]$.
-Feng Bao *et al.*[1] note that the reverse-time ODE
+In Refs.~[1,2,3], it is noted that the reverse-time ODE
 ```math
     dx  = \left[f(t) x - \frac{1}{2} g^2(t) S(t, x)\right] dt, \quad S(t, x) = \nabla_{x} \log p(x)
 ```
@@ -40,7 +40,7 @@ p(x | x_0)
  & \propto \exp \left(-\frac{1}{2}  z^2 \right). 
 \end{aligned}
 ```
-If the function $\alpha(t)$ is chosen so that it goes to zero as $t \rightarrow 1$, while $\sigma(t)$ remains finite in that limit, then, by construction, the vector $x_1$ will be distributed according to a diagonal $d$-dimensional zero mean normal with variance $\sigma_1^2$ irrespective of the density $p(x_0)$. The $d$-dimensional normal is a **fixed point** of the SDE. Reference [1] chooses $\alpha = 1 - t$, $\sigma(t) = \sqrt{t}$. In this project, we choose
+If the function $\alpha(t)$ is chosen so that it goes to zero as $t \rightarrow 1$, while $\sigma(t)$ remains finite in that limit, then, by construction, the vector $x_1$ will be distributed according to a diagonal $d$-dimensional zero mean normal with variance $\sigma_1^2$ irrespective of the density $p(x_0)$. The $d$-dimensional normal is a **fixed point** of the SDE. In Ref. [3], the choice is $\alpha = 1 - t$, $\sigma(t) = \sqrt{t}$. In this project, we choose
 ```math
 \begin{aligned}
 \alpha(t) & = 1 - t,\\
@@ -63,10 +63,12 @@ The class `FlowDE` numerically solves the equation
      \, q(t, x),
 \end{aligned}
 ```
-where, following Ref.[1], the integrals that define the vector field $q(t, x)$ are approximated by Monte Carlo integration using the point cloud ${\cal D}$. In principle, `FlowDE` works for any dimension $d$; in practice, `FlowDE` is limited by the available GPU memory. For $N$ points $x_1 \sim p(x_1)$, that is, $N$ solutions computed in parallel, using a point cloud of size $M$, `FlowDE` needs to store a minimum of $N \times M \times d$ 32-bit floating point numbers.
+where, following Ref.[3], the integrals that define the vector field $q(t, x)$ are approximated by Monte Carlo integration using the point cloud ${\cal D}$. In principle, `FlowDE` works for any dimension $d$; in practice, `FlowDE` is limited by the available GPU memory. For $N$ points $x_1 \sim p(x_1)$, that is, $N$ solutions computed in parallel, using a point cloud of size $M$, `FlowDE` needs to store a minimum of $N \times M \times d$ 32-bit floating point numbers.
 
 ## Example
 The notebook `tutorial.ipynb` illustrates the usage ``FlowDE` using a simple 2D density.
 
 ## References
- 1. Yanfang Lui, Minglei Yang, Zezhong Zhang, Feng Bao, Yanzhao Cao, and Guannan Zhang, Diffusion-Model-Assisted Supervised Learning of Generative Models for Density Estimation, arXiv:2310.14458v1, 22 Oct 2023
+  1. Yang Song, Jascha Narain Sohl-Dickstein, Ben Poole, *Score-Based Generative Modeling through Stochastic Differential Equation*, International Conference on Learning Representations, 26 November 2020; https://arxiv.org/abs/2011.13456
+  2. Cheng Lu†, Yuhao Zhou†, Fan Bao†, Jianfei Chen†, Chongxuan Li‡, Jun Zhu, *DPM-Solver: A Fast ODE Solver for Diffusion Probabilistic Model Sampling in Around 10 Steps*, arXiv:2206.00927v3, 13 Oct 2022.
+  1. Yanfang Lui, Minglei Yang, Zezhong Zhang, Feng Bao, Yanzhao Cao, and Guannan Zhang, Diffusion-Model-Assisted Supervised Learning of Generative Models for Density Estimation, arXiv:2310.14458v1, 22 Oct 2023
