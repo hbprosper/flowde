@@ -6,7 +6,7 @@ Feng Bao *et al.*[1] note that the reverse-time ODE
 ```math
     dx  = \left[f(t) x - \frac{1}{2} g^2(t) S(t, x)\right] dt, \quad S(t, x) = \nabla_{x} \log p(x)
 ```
-maps $x_1 \equiv x(t=1) \sim p(x_1)$ to $x_0 \equiv x(t=0) \sim p(x_0)$ *deterministically*, where $p(x_1)$ is a diagonal $d$-dimensional standard normal density and $p(x_0)$ is a target $d$-dimensional density for which we have a point cloud, ${\cal D} = \\{ x_0^{(j)}\\}_{j=1}^n$. In a typical application, ${\cal D}$ is generated using a simulator. The probability density $p(x)$ smoothly interpolates between $p(x_1)$ and $p(x_0)$ and $S(t, x)$ is the associated **score function**.  Using the definitions of the functions $f(t)$ and $g(t)$ given in Ref.[1], and after some manipulation, these equations can be written as
+maps $x_1 \equiv x(t=1) \sim p(x_1)$ to $x_0 \equiv x(t=0) \sim p(x_0)$ *deterministically*, where $p(x_1)$ is a diagonal $d$-dimensional standard normal density and $p(x_0)$ is a target $d$-dimensional density for which we have a point cloud, ${\cal D} = \\{ x_0^{(j)}\\}_{j=1}^M$. In a typical application, ${\cal D}$ is generated using a simulator. The probability density $p(x)$ smoothly interpolates between $p(x_1)$ and $p(x_0)$ and $S(t, x)$ is the associated **score function**.  Using the definitions of the functions $f(t)$ and $g(t)$ given in Ref.[1], and after some manipulation, these equations can be written as
 ```math
 \begin{aligned}
     \frac{d x}{dt} 
@@ -63,7 +63,10 @@ The class `FlowDE` numerically solves the equation
      \, q(t, x),
 \end{aligned}
 ```
-where, following Ref.[1], the integrals that define the vector field $q(t, x)$ are approximated by Monte Carlo integration using point clouds $\sim p(x_0)$, which for intractable densities would usually be done via Monte Carlo simulation.
+where, following Ref.[1], the integrals that define the vector field $q(t, x)$ are approximated by Monte Carlo integration using the point cloud ${\cal D}$. In principle, `FlowDE` works for any dimension $d$; in practice, it is limited by the available GPU memory. For $N$ points $x_1 \sim p(x_1)$, that is, $N$ solutions, using a point cloud of size $M$, `FlowDE` needs to store a minimum of $N \times M \times d $ 32-bit floating point numbers.
+
+## Example
+The notebook `tutorial.ipynb` illustrates the usage ``FlowDE` using a simple 2D density.
 
 ## References
  1. Yanfang Lui, Minglei Yang, Zezhong Zhang, Feng Bao, Yanzhao Cao, and Guannan Zhang, Diffusion-Model-Assisted Supervised Learning of Generative Models for Density Estimation, arXiv:2310.14458v1, 22 Oct 2023
