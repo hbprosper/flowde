@@ -40,7 +40,7 @@ p(x | x_0)
  & \propto \exp \left(-\frac{1}{2}  z^2 \right). 
 \end{aligned}
 ```
-The function $\alpha(t)$ is chosen so that it goes to zero as $t \rightarrow 1$, while $\sigma(t)$ remains finite in that limit. Then, by construction, the vector $x_1$ will be distributed according to a diagonal $d$-dimensional ormal with variance $\sigma_1^2$ irrespective of the density $p(x_0)$. The $d$-dimensional normal is a **fixed point** of the SDE. Reference [1] suggests $\alpha = 1 - t$, $\sigma(t) = \sqrt{t}$. In this project, we choose
+If the function $\alpha(t)$ is chosen so that it goes to zero as $t \rightarrow 1$, while $\sigma(t)$ remains finite in that limit, then, by construction, the vector $x_1$ will be distributed according to a diagonal $d$-dimensional zero mean normal with variance $\sigma_1^2$ irrespective of the density $p(x_0)$. The $d$-dimensional normal is a **fixed point** of the SDE. Reference [1] chooses $\alpha = 1 - t$, $\sigma(t) = \sqrt{t}$. In this project, we choose
 ```math
 \begin{aligned}
 \alpha(t) & = 1 - t,\\
