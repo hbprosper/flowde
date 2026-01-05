@@ -14,8 +14,10 @@ import torch
 import torch.nn as nn
 
 import matplotlib as mp
+# use JavaScript for animations
+mp.rc('animation', html='jshtml')
+
 import matplotlib.pyplot as plt
-import matplotlib.cm as cm
 from matplotlib.animation import FuncAnimation
 
 import shutil
@@ -26,7 +28,6 @@ plt.rcParams.update({
   "font.sans-serif": "Helvetica",
   "font.size": 14
   })
-# -----------------------------------------------------------------------
 # -----------------------------------------------------------------------
 class Flow2DAnimation:
     '''
@@ -150,7 +151,7 @@ class Flow2DAnimation:
     
     def show(self):
         '''
-        Construct and show the animation.
+        Construct the animation.
         '''
         plt.show()
         return self.ani
